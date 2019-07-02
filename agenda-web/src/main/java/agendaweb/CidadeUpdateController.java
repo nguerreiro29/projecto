@@ -18,15 +18,47 @@ import entity.Cidade;
 public class CidadeUpdateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
+	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Integer codigo = Integer.valueOf(req.getParameter("codigo"));
 		String nome = req.getParameter("nome");
-		Integer index1 = Integer.valueOf(req.getParameter("index1"));
+		PrintWriter out = resp.getWriter();
+		//int index1 = 0;
 		
-		Arraylista.cidades.set(index1, new Cidade(codigo, nome));
+		if(nome == null || nome.isEmpty()){
+			out.println("<html>");
+			out.println("<body>");
+			out.println("Nao foi possivel efectuar a operacao.");
+			out.println("</body>");
+			out.println("</html>");
+			//resp.sendRedirect("/agenda-web/cidadelist");
+			return;
+		}
+		if (!nome.isEmpty()) 
+		{
+			  for(int i=0; i< Arraylista.cidades.size(); i++) { 
+				  if(Arraylista.cidades.get(i).getNome().trim().equalsIgnoreCase(nome) && !Arraylista.cidades.get(i).getCodigo().equals(codigo))
+				  {
+					  	out.println("<html>"); 
+					  	out.println("<body>");
+					  	out.println("Nao foi possivel efectuar a operacao."); 
+					  	out.println("</body>");
+					  	out.println("</html>"); //resp.sendRedirect("/agenda-web/cidadelist");
+					  	return; 
+						
+				  }
+				  if((Arraylista.cidades.get(i).getNome().trim().equalsIgnoreCase(nome) && Arraylista.cidades.get(i).getCodigo().equals(codigo)) || !Arraylista.cidades.get(i).getNome().trim().equalsIgnoreCase(nome))
+				  {
+					  Arraylista.cidades.get(i).setNome(nome);
+					  break;
+				  } 	
+			  }
+		}
+			
+			//Arraylista.cidades.set(index1, new Cidade(codigo, nome));
+			
+			resp.sendRedirect("/agenda-web/cidadelist");
+		}
 		
-		resp.sendRedirect("/agenda-web/cidadelist");
-	}
-
 }

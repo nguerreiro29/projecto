@@ -23,7 +23,6 @@ public class CidadeForm extends HttpServlet {
 		out.println("<form action = \"cidadeformcontroller\">");
 		out.println("<table border =\"1\">");
 		out.println("<tr><td colspan=\"2\">Formulario</td></tr>");
-		out.println("<tr><td>Codigo</td><td><input type=\"text\" name=\"codigo\"/></td></tr>");
 		out.println("<tr><td>Nome</td><td><input type=\"text\" name=\"nome\"/></td></tr>");
 		out.println("<tr><td colspan=\"2\" align=\"center\">");
 		out.println("<input type=\"submit\" value=\"Enviar\"/>");
@@ -31,6 +30,7 @@ public class CidadeForm extends HttpServlet {
 		out.println("</td></tr>");
 		out.println("</table>");
 		out.println("</form>");
+		out.println("<a href=\"/agenda-web/cidadelist\">Voltar</a>");
 		out.println("</body>");
 		out.println("</html>");
 	}

@@ -26,12 +26,23 @@ public class CidadeList extends HttpServlet {
 		out.println("<table border =\"1\">");
 		out.println("<tr><td colspan=\"4\">Parametros recebidos</td></tr>");
 		out.println("<tr><td>Codigo</td><td>Nome</td><td> </td><td> </td></tr>");
-		for (Cidade cidade : Arraylista.cidades) {
-			Integer index1 = Arraylista.cidades.indexOf(cidade);
-			out.println("<tr><td>" + cidade.getCodigo() + "</td><td>" + cidade.getNome() + "</td><td><a href=\"/agenda-web/cidadeupdate?id="+ cidade.getCodigo() + "&nome=" + cidade.getNome() + "&index=" + index1 + "\">Editar</a></td><td><a href=\"/agenda-web/cidadedelete?id=" + index1 + "\">Apagar</a></td></tr>");
-		}
+		for(int i=0; i< Arraylista.cidades.size(); i++) {
+			out.println("<tr><td>" + Arraylista.cidades.get(i).getCodigo() + "</td><td>" + Arraylista.cidades.get(i).getNome() + "</td><td><a href=\"/agenda-web/cidadeupdate?codigo="+ 
+					Arraylista.cidades.get(i).getCodigo() + "&nome=" + Arraylista.cidades.get(i).getNome() + "\">Editar</a></td><td><a href=\"/agenda-web/cidadedelete?codigo=" +		
+					Arraylista.cidades.get(i).getCodigo() + "\">Apagar</a></td></tr>"); }
 		out.println("</table>");
+		out.println("<a href=\"/agenda-web/cidadeform\">Adicionar</a>");
 		out.println("</body>");
 		out.println("</html>");
-	}
+		}
+		
+		/*
+		 * for (Cidade cidade : Arraylista.cidades) { out.println("<tr><td>" +
+		 * cidade.getCodigo() + "</td><td>" + cidade.getNome() +
+		 * "</td><td><a href=\"/agenda-web/cidadeupdate?id="+ cidade.getCodigo() +
+		 * "&nome=" + cidade.getNome() + "&index=" + Arraylista.cidades.indexOf(cidade)
+		 * + "\">Editar</a></td><td><a href=\"/agenda-web/cidadedelete?index=" +
+		 * Arraylista.cidades.indexOf(cidade) + "\">Apagar</a></td></tr>"); }
+		 */
+		
 	}

@@ -21,9 +21,19 @@ public class CidadeDelete extends HttpServlet {
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Integer index1 = Integer.valueOf(req.getParameter("index1"));
+		int codigo = Integer.valueOf(req.getParameter("codigo"));
+		int index1 = 0;
 		
-		Arraylista.cidades.remove(index1);
+		for(int i=0; i< Arraylista.cidades.size(); i++) {
+			int codigo2 = Arraylista.cidades.get(i).getCodigo();
+			if(codigo2 == codigo)
+			{
+				Arraylista.cidades.remove(i);
+				break;
+			}
+		}
+		
+		//Arraylista.cidades.remove(index1);
 		
 		resp.sendRedirect("/agenda-web/cidadelist");
 	}
