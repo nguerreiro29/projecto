@@ -35,27 +35,23 @@ public class CidadeUpdateController extends HttpServlet {
 			//resp.sendRedirect("/agenda-web/cidadelist");
 			return;
 		}
-		if (!nome.isEmpty()) 
-		{
-			  for(int i=0; i< Arraylista.cidades.size(); i++) { 
-				  if(Arraylista.cidades.get(i).getNome().trim().equalsIgnoreCase(nome) && !Arraylista.cidades.get(i).getCodigo().equals(codigo))
-				  {
-					  	out.println("<html>"); 
-					  	out.println("<body>");
-					  	out.println("Nao foi possivel efectuar a operacao."); 
-					  	out.println("</body>");
-					  	out.println("</html>"); //resp.sendRedirect("/agenda-web/cidadelist");
-					  	return; 
-						
-				  }
-				  if((Arraylista.cidades.get(i).getNome().trim().equalsIgnoreCase(nome) && Arraylista.cidades.get(i).getCodigo().equals(codigo)) || !Arraylista.cidades.get(i).getNome().trim().equalsIgnoreCase(nome))
-				  {
-					  Arraylista.cidades.get(i).setNome(nome);
-					  break;
-				  } 	
-			  }
+		
+		for(int i=0; i< Arraylista.cidades.size(); i++) { 
+			if(Arraylista.cidades.get(i).getNome().trim().equalsIgnoreCase(nome) && !Arraylista.cidades.get(i).getCodigo().equals(codigo))
+			{
+				out.println("<html>"); 
+				out.println("<body>");
+				out.println("Nao foi possivel efectuar a operacao. ja existe"); 
+				out.println("</body>");
+				out.println("</html>"); //resp.sendRedirect("/agenda-web/cidadelist");
+				return; 
+			}
 		}
-			
+		for(int i=0; i< Arraylista.cidades.size(); i++)
+		{
+			 Arraylista.cidades.get(i).setNome(nome);
+			 break;
+		}
 			//Arraylista.cidades.set(index1, new Cidade(codigo, nome));
 			
 			resp.sendRedirect("/agenda-web/cidadelist");
