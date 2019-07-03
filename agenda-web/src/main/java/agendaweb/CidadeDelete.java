@@ -11,31 +11,38 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import agendabusiness.ICidadeBUSINESS;
 import entity.Cidade;
+import impl.CidadeBUSINESS;
 
 @WebServlet(name = "cidadedeleter", urlPatterns = "/cidadedelete")
 
 public class CidadeDelete extends HttpServlet {
-	
 	private static final long serialVersionUID = 1L;
+	private ICidadeBUSINESS business = new CidadeBUSINESS();
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		int codigo = Integer.valueOf(req.getParameter("codigo"));
-		int index1 = 0;
-		
-		for(int i=0; i< Arraylista.cidades.size(); i++) {
-			int codigo2 = Arraylista.cidades.get(i).getCodigo();
-			if(codigo2 == codigo)
-			{
-				Arraylista.cidades.remove(i);
-				break;
-			}
+		try {
+			
+			Integer codigo = Integer.valueOf(req.getParameter("codigo"));
+			
+			//Cidade cidade = new Cidade(codigo);
+			
+			business.delete(new Cidade(codigo));
+			
+			PrintWriter out = resp.getWriter();
+			out.println("<html>"); 
+			out.println("<body>");
+			out.println("Delete efectuado com sucesso"); 
+			out.println("<a href=\"/agenda-web/cidadelist\">Voltar</a>");
+			out.println("</body>");
+			out.println("</html>");
 		}
-		
-		//Arraylista.cidades.remove(index1);
-		
-		resp.sendRedirect("/agenda-web/cidadelist");
+		catch(Exception e)
+		{
+			throw new ServletException(e);
+		}
 	}
 
 }

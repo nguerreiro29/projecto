@@ -11,50 +11,39 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import agendabusiness.BusinessException;
+import agendabusiness.ICidadeBUSINESS;
 import entity.Cidade;
+import impl.CidadeBUSINESS;
 
 @WebServlet(name = "cidadeupdatecontroller", urlPatterns = "/cidadeupdatecontroller")
 
 public class CidadeUpdateController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private ICidadeBUSINESS business = new CidadeBUSINESS();
 	
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Integer codigo = Integer.valueOf(req.getParameter("codigo"));
-		String nome = req.getParameter("nome");
-		PrintWriter out = resp.getWriter();
-		//int index1 = 0;
-		
-		if(nome == null || nome.isEmpty()){
-			out.println("<html>");
-			out.println("<body>");
-			out.println("Nao foi possivel efectuar a operacao.");
-			out.println("</body>");
-			out.println("</html>");
-			//resp.sendRedirect("/agenda-web/cidadelist");
-			return;
-		}
-		
-		for(int i=0; i< Arraylista.cidades.size(); i++) { 
-			if(Arraylista.cidades.get(i).getNome().trim().equalsIgnoreCase(nome) && !Arraylista.cidades.get(i).getCodigo().equals(codigo))
-			{
-				out.println("<html>"); 
-				out.println("<body>");
-				out.println("Nao foi possivel efectuar a operacao. ja existe"); 
-				out.println("</body>");
-				out.println("</html>"); //resp.sendRedirect("/agenda-web/cidadelist");
-				return; 
-			}
-		}
-		for(int i=0; i< Arraylista.cidades.size(); i++)
+		try 
 		{
-			 Arraylista.cidades.get(i).setNome(nome);
-			 break;
-		}
-			//Arraylista.cidades.set(index1, new Cidade(codigo, nome));
+			Integer codigo = Integer.valueOf(req.getParameter("codigo"));
+			String nome = req.getParameter("nome");
+		
+			Cidade cidade = new Cidade(codigo, nome);
 			
-			resp.sendRedirect("/agenda-web/cidadelist");
+			business.update(cidade);
+			
+			PrintWriter out = resp.getWriter();
+			out.println("<html>"); 
+			out.println("<body>");
+			out.println("Update realizado com sucesso"); 
+			out.println("<a href=\"/agenda-web/cidadelist\">Voltar</a>");
+			out.println("</body>");
+			out.println("</html>"); 
+		} catch (Exception e) {
+			throw new ServletException(e);
 		}
 		
+	}
 }

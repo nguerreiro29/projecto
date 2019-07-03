@@ -16,7 +16,10 @@
   	<url-pattern>/hello</url-pattern>
   </servlet-mapping>-->
   
- 
+<!--  <error-page>
+ 	<exception-type>agendaweb.MyClassExceptions</exception-type>
+ 	<location>/ecraerros</location>
+ </error-page> -->
   
   
 </web-app>

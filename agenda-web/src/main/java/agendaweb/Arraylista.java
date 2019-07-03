@@ -15,4 +15,6 @@ import entity.Cidade;
 
 public class Arraylista {
 	static List<Cidade> cidades = new ArrayList<Cidade>();
+	
+	static int contador;
 }

@@ -11,12 +11,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import agendabusiness.ICidadeBUSINESS;
 import entity.Cidade;
+import impl.CidadeBUSINESS;
 
 @WebServlet(name = "cidadelist", urlPatterns = "/cidadelist")
 
 public class CidadeList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private ICidadeBUSINESS business = new CidadeBUSINESS();
 	
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -26,10 +29,10 @@ public class CidadeList extends HttpServlet {
 		out.println("<table border =\"1\">");
 		out.println("<tr><td colspan=\"4\">Parametros recebidos</td></tr>");
 		out.println("<tr><td>Codigo</td><td>Nome</td><td> </td><td> </td></tr>");
-		for(int i=0; i< Arraylista.cidades.size(); i++) {
-			out.println("<tr><td>" + Arraylista.cidades.get(i).getCodigo() + "</td><td>" + Arraylista.cidades.get(i).getNome() + "</td><td><a href=\"/agenda-web/cidadeupdate?codigo="+ 
-					Arraylista.cidades.get(i).getCodigo() + "&nome=" + Arraylista.cidades.get(i).getNome() + "\">Editar</a></td><td><a href=\"/agenda-web/cidadedelete?codigo=" +		
-					Arraylista.cidades.get(i).getCodigo() + "\">Apagar</a></td></tr>"); }
+		for (Cidade cidade: business.read()) { 
+			out.println("<tr><td>" + cidade.getCodigo() + "</td><td>" + cidade.getNome() + "</td><td><a href=\"/agenda-web/cidadeupdate?codigo="+ 
+					cidade.getCodigo() + "&nome=" + cidade.getNome() + "\">Editar</a></td><td><a href=\"/agenda-web/cidadedelete?codigo=" +		
+					cidade.getCodigo() + "\">Apagar</a></td></tr>"); }
 		out.println("</table>");
 		out.println("<a href=\"/agenda-web/cidadeform\">Adicionar</a>");
 		out.println("</body>");

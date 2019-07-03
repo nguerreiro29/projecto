@@ -14,6 +14,16 @@ public class Cidade {
 		this.codigo = codigo;
 		this.nome = nome;
 	}
+	
+	public Cidade(Integer codigo) {
+		super();
+		this.codigo = codigo;
+	}
+	
+	public Cidade(String nome) {
+		super();
+		this.nome = nome;
+	}
 
 	public Integer getCodigo() {
 		return codigo;
@@ -54,11 +64,10 @@ public class Cidade {
 				return false;
 		} else if (!codigo.equals(other.codigo))
 			return false;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
-			return false;
+		/*
+		 * if (nome == null) { if (other.nome != null) return false; } else if
+		 * (!nome.equals(other.nome)) return false;
+		 */
 		return true;
 	}
 	
