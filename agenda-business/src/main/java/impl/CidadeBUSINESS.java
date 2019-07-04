@@ -18,7 +18,7 @@ public class CidadeBUSINESS implements ICidadeBUSINESS{
 		
 		//validar se existe
 		if(dao.jaExisteCidade(cidade.getNome())) {
-			throw new BusinessException("A cidade já insiste");
+			throw new BusinessException("A cidade já existe");
 		}
 		
 		dao.create(cidade);
@@ -42,7 +42,7 @@ public class CidadeBUSINESS implements ICidadeBUSINESS{
 		
 		//validar se existe
 		if(dao.jaExisteCidadeCodigo(cidade.getCodigo(),cidade.getNome())) {
-			throw new BusinessException("A cidade já insiste");
+			throw new BusinessException("A cidade já existe");
 		}
 		
 		dao.update(cidade);

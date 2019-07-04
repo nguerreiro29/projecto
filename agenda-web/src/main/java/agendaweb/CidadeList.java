@@ -24,15 +24,21 @@ public class CidadeList extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		PrintWriter out = resp.getWriter();
+		String listagem = null;
 		out.println("<html>");
 		out.println("<body bgcolor=\"#FF0000\">");
 		out.println("<table border =\"1\">");
-		out.println("<tr><td colspan=\"4\">Parametros recebidos</td></tr>");
+		out.println("<tr><td colspan=\"4\">Lista</td></tr>");
 		out.println("<tr><td>Codigo</td><td>Nome</td><td> </td><td> </td></tr>");
 		for (Cidade cidade: business.read()) { 
-			out.println("<tr><td>" + cidade.getCodigo() + "</td><td>" + cidade.getNome() + "</td><td><a href=\"/agenda-web/cidadeupdate?codigo="+ 
+			 listagem = ("<tr><td>" + cidade.getCodigo() + "</td><td>" + cidade.getNome() + "</td><td><a href=\"/agenda-web/cidadeupdate?codigo="+ 
 					cidade.getCodigo() + "&nome=" + cidade.getNome() + "\">Editar</a></td><td><a href=\"/agenda-web/cidadedelete?codigo=" +		
-					cidade.getCodigo() + "\">Apagar</a></td></tr>"); }
+					cidade.getCodigo() + "\">Apagar</a></td></tr>"); 
+			 out.println(listagem);}
+			if (listagem == null)
+			{
+				out.println("<tr><td colspan=\"4\">Não existem elementos na lista cidades!!!! Por favor insira um.</td></tr>");
+			}
 		out.println("</table>");
 		out.println("<a href=\"/agenda-web/cidadeform\">Adicionar</a>");
 		out.println("</body>");

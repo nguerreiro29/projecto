@@ -3,14 +3,16 @@ package impl;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import agendadao.ICidadeDAO;
 import entity.Cidade;
 
-public class CidadeDAO implements ICidadeDAO {
+public class CidadeDAO2 implements ICidadeDAO { // poderiamos fazer uma super classe para cidadedao e cidadedao2
 
-	static List<Cidade> cidades = new ArrayList<Cidade>();
+	static Set<Cidade> cidades = new HashSet<Cidade>();
 	
 	private static Integer id = 0;
 	
@@ -33,13 +35,23 @@ public class CidadeDAO implements ICidadeDAO {
 
 	@Override
 	public void delete(Cidade cidade) {
-		cidades.remove(cidade);
+		cidades.remove(cidade);			//para utilizar o hashset e necessario fzr overriding do hashcode()
+		
 	}
 
 	@Override
 	public void update(Cidade cidade) {
-		int index = cidades.indexOf(cidade);
-		cidades.set(index, cidade);  
+		/*
+		 * int index = cidades.indexOf(cidade); 
+		 * cidades.set(index, cidade); 					// ArrayList
+		 */
+		for (Cidade cidadeloop: cidades) { 				//HashSet
+			  if(cidadeloop.getCodigo().equals(cidade.getCodigo())) 
+			  {
+				  cidadeloop.setNome(cidade.getNome());			  
+				  break;
+			  }
+		  }
 	}
 
 	@Override

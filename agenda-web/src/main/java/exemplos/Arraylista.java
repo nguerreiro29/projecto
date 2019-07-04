@@ -1,4 +1,4 @@
-package agendaweb;
+package exemplos;
 
 import java.util.List;
 import java.io.IOException;

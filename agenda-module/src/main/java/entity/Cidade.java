@@ -46,7 +46,7 @@ public class Cidade {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		//result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		return result;
 	}
 
