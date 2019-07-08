@@ -39,7 +39,7 @@ public class CidadeUpdate {
 			  FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Atenção:", e.getLocalizedMessage()));
 			  return null;
 		}
-		 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "-", "Actualizado com sucesso."));
+		 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "-", "Cidade actualizada com sucesso."));
 		 return "read";
 	}
 }

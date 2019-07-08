@@ -55,9 +55,14 @@ public class CidadeCreate {
 		  catch (Exception e){
 			  FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Atenção:", e.getLocalizedMessage()));
 			  return null;
+			  
+			 // <h:messages globalOnly="true" warnClass="" infoClass="" errorClass="" fatalClass=""/>
+			 // <h:messages for="nome"/>
+			  //<h:form prependId="false">
+			 // FacesContext.getCurrentInstance().addMessage("nome", new FacesMessage(FacesMessage.SEVERITY_INFO, "Atenção:", e.getLocalizedMessage()));
 		}
 		 
-		 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "-", "Inserido com sucesso."));
+		 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "-", "Cidade inserida com sucesso."));
 		 return "read";
 	}
 	
