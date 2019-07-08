@@ -47,12 +47,25 @@ public class MeuFiltro implements Filter{
 		}
 		
 		array.forEach((k,v)->System.out.println(k + "," + Arrays.toString(v)));
+		
+		
+		
+		
+		
+		
+		
+		
 		//String nome = ((HttpServletRequest) request).getParameter("codigo");
 		
 		/*
 		 * System.out.println("Tempo da requisicao de " + uri + "demorou (ms):" +
 		 * (tempoF - tempoI));
 		 */
+		
+		
+		
+		
+		
 		chain.doFilter(request, response);
 	}
 

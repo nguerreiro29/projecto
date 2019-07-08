@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Agenda</title>
+        <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+    </h:head>
+    <h:body>
+     <h:form>
+     <h:link value= "Criar Cidade" outcome="createform"/>
+    <br/>
+    <br/>
+    	<h:dataTable value="#{cidadeRead.cidades}" var="cidade" border="1" width="100%">
+    	<h:column>
+    		<f:facet name="header">
+        		<h:outputLabel value="Código"/>
+        	</f:facet>
+        	<h:outputText value="#{cidade.codigo}"/>
+        </h:column>
+        <h:column>
+    		<f:facet name="header">
+        		<h:outputLabel value="Nome"/>
+        	</f:facet>
+        	<h:outputText value="#{cidade.nome}"/>
+        </h:column>
+        <h:column>
+    		<f:facet name="header">
+        		<h:outputLabel value="Acções"/>
+        	</f:facet>
+        	<h:commandLink action="#{cidadeUpdate.edit(cidade)}" value="Editar"/>
+        	<h:commandLink action="#{cidadeDelete.delete(cidade)}" value="Apagar"/>
+        </h:column>
+	</h:dataTable>
+	
+	
+	</h:form>
+	<h:messages showSummary="true" showDetail="true" warnClass="" infoClass="" errorClass="" fatalClass=""/>
+    </h:body>
+</html>

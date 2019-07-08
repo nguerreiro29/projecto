@@ -1,0 +1,23 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+ 
+    <h:head>
+        <title>Agenda</title>
+        <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+    </h:head>
+    <h:body>
+        <h:outputLabel value="Cidade"/>
+
+	<h:form>
+				<h:outputLabel for="nome" value="Nome"/>
+				<h:inputText id="nome" value="#{cidadeCreate.cidade.nome}"/>
+				<h:commandButton value="Enviar" action="#{cidadeCreate.create}"/>
+				<h:commandButton value="Limpar" action="#{cidadeCreate.limpar}"/>
+	</h:form>
+	
+	<h:messages showSummary="true" showDetail="true" warnClass="" infoClass="" errorClass="" fatalClass=""/>
+	
+	
+	<h:link value= "Ir p/ Lista Cidades" outcome="read"/>
+    </h:body>
+</html>

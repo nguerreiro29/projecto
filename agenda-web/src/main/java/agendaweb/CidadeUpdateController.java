@@ -37,8 +37,10 @@ public class CidadeUpdateController extends HttpServlet {
 			PrintWriter out = resp.getWriter();
 			out.println("<html>"); 
 			out.println("<body>");
-			out.println("Update realizado com sucesso"); 
-			out.println("<a href=\"/agenda-web/jsp/cidade/read.jsp\">Voltar</a>");
+			out.println("<div>");
+			out.println("<p>Update realizado com sucesso</p>"); 
+			out.println("<p><a href=\"/agenda-web/jsp/cidade/read.jsp\">Voltar JSP</a>&nbsp&nbsp&nbsp<a href=\"/agenda-web/cidadelist\">Voltar Werbservlet</a></p>");
+			out.println("</div>");
 			out.println("</body>");
 			out.println("</html>"); 
 		} catch (Exception e) {

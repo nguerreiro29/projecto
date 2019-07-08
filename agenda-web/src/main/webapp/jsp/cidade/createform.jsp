@@ -1,25 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Agenda</title>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css" type="text/css" />
 </head>
 <body>
+<div>
+<h1>Cidade</h1>
 	<form action="<%=request.getContextPath()%>/cidadeformcontroller">
-		<table border="1">
-			<tr>
-				<td colspan="2">Formulario</td>
-			</tr>
-			<tr>
-				<td>Nome</td>
-				<td><input type="text" name="nome" /></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center"><input type="submit" value="Enviar" /> <input type="reset" value="Limpar" /></td>
-			</tr>
-		</table>
+				<label for="nome">Nome</label>
+				<input type="text" name="nome" id="nome"/>
+				<input type="submit" value="Enviar" /> 
 	</form>
-	<a href="/agenda-web/cidadelist">Voltar</a>
+	
+	<p><a href="/agenda-web/jsp/cidade/read.jsp">Voltar</a></p>
+</div>
 </body>
 </html>

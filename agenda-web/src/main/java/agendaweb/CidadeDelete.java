@@ -27,15 +27,15 @@ public class CidadeDelete extends HttpServlet {
 			
 			Integer codigo = Integer.valueOf(req.getParameter("codigo"));
 			
-			//Cidade cidade = new Cidade(codigo);
-			
 			business.delete(new Cidade(codigo));
 			
 			PrintWriter out = resp.getWriter();
 			out.println("<html>"); 
 			out.println("<body>");
-			out.println("Delete efectuado com sucesso"); 
-			out.println("<a href=\"/agenda-web/jsp/cidade/read.jsp\">Voltar</a>");
+			out.println("<div>");
+			out.println("<p>Delete efectuado com sucesso</p>"); 
+			out.println("<p><a href=\"/agenda-web/jsp/cidade/read.jsp\">Voltar JSP</a>&nbsp&nbsp&nbsp<a href=\"/agenda-web/cidadelist\">Voltar Werbservlet</a></p>");
+			out.println("</div>");
 			out.println("</body>");
 			out.println("</html>");
 		}
