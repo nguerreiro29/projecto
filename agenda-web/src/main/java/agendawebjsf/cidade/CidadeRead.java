@@ -1,4 +1,4 @@
-package agendawebjsf;
+package agendawebjsf.cidade;
 
 import java.util.Collection;
 

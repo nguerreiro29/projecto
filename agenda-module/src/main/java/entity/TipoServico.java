@@ -3,13 +3,13 @@ package entity;
 public class TipoServico {
 	
 	private Integer codigo;
-	private Integer descricao;
+	private String descricao;
 	
 	public TipoServico() {
 		super();
 	}
 	
-	public TipoServico(Integer codigo, Integer descricao) {
+	public TipoServico(Integer codigo, String descricao) {
 		super();
 		this.codigo = codigo;
 		this.descricao = descricao;
@@ -23,11 +23,11 @@ public class TipoServico {
 		this.codigo = codigo;
 	}
 
-	public Integer getDescricao() {
+	public String getDescricao() {
 		return descricao;
 	}
 
-	public void setDescricao(Integer descricao) {
+	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
 	

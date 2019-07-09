@@ -1,23 +1,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
  
     <h:head>
         <title>Agenda</title>
-        <link rel="stylesheet" href="../../css/style.css" type="text/css" />
     </h:head>
     <h:body>
-        <h:outputLabel value="Cidade"/>
-
 	<h:form>
-				<h:outputLabel for="nome" value="Nome"/>
-				<h:inputText id="nome" value="#{cidadeCreate.cidade.nome}"/>
-				<h:commandButton value="Enviar" action="#{cidadeCreate.create}"/>
-				<h:commandButton value="Limpar" action="#{cidadeCreate.limpar}"/>
+		<p:panel header="Criar Cidade" footer="">
+			<h:panelGroup>
+				<p:outputLabel value="Nome "/>
+				<p:inputText id="nome" value="#{cidadeCreate.cidade.nome}"/>
+			</h:panelGroup>
+		<f:facet name="footer">
+				<p:commandButton value="Enviar" action="#{cidadeCreate.create}" update="@form"/>
+				<p:commandButton value="Limpar" action="#{cidadeCreate.limpar}" update="@form"/><br/><br/>
+				<p:commandButton value="Ir p/ Lista Cidades" action="read?faces-redirect=true"/>
+		</f:facet>
+		</p:panel>
+		
+		<p:messages showSummary="true" showDetail="true" />
 	</h:form>
-	
-	<h:messages showSummary="true" showDetail="true" warnClass="" infoClass="" errorClass="" fatalClass=""/>
-	
-	
-	<h:link value= "Ir p/ Lista Cidades" outcome="read"/>
     </h:body>
 </html>

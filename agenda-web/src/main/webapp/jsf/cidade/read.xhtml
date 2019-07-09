@@ -1,39 +1,39 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Agenda</title>
-        <link rel="stylesheet" href="../../css/style.css" type="text/css" />
     </h:head>
     <h:body>
      <h:form>
-     <h:link value= "Criar Cidade" outcome="createform"/>
-    <br/>
-    <br/>
-    	<h:dataTable value="#{cidadeRead.cidades}" var="cidade" border="1" width="100%">
-    	<h:column>
+    <p:panel header="Lista Cidades" footer="">
+    	<p:dataTable value="#{cidadeRead.cidades}" var="cidade" paginator="true"  rows="10" border="1" width="100%">
+    	<p:column>
     		<f:facet name="header">
-        		<h:outputLabel value="Código"/>
+        		<p:outputLabel value="Código"/>
         	</f:facet>
         	<h:outputText value="#{cidade.codigo}"/>
-        </h:column>
-        <h:column>
+        </p:column>
+        <p:column>
     		<f:facet name="header">
         		<h:outputLabel value="Nome"/>
         	</f:facet>
         	<h:outputText value="#{cidade.nome}"/>
-        </h:column>
-        <h:column>
+        </p:column>
+        <p:column>
     		<f:facet name="header">
-        		<h:outputLabel value="Acções"/>
+        		<p:outputLabel value="Acções"/>
         	</f:facet>
-        	<h:commandLink action="#{cidadeUpdate.edit(cidade)}" value="Editar"/>
-        	<h:commandLink action="#{cidadeDelete.delete(cidade)}" value="Apagar"/>
-        </h:column>
-	</h:dataTable>
-	
-	
+        	<p:commandLink action="#{cidadeUpdate.edit(cidade)}" value="Editar"/><h:outputText value=" / "/>
+        	<p:commandLink action="#{cidadeDelete.delete(cidade)}" value="Apagar"/>
+        </p:column>
+	</p:dataTable>
+	<f:facet name="footer">
+	<p:commandButton value="Criar Cidade" action="createform?faces-redirect=true"/>
+	</f:facet>
+	</p:panel>
+	<p:messages showSummary="true" showDetail="true" />
 	</h:form>
-	<h:messages showSummary="true" showDetail="true" warnClass="" infoClass="" errorClass="" fatalClass=""/>
     </h:body>
 </html>

@@ -1,4 +1,4 @@
-package agendawebjsf;
+package agendawebjsf.cidade;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -31,15 +31,15 @@ public class CidadeUpdate {
 		  
 	}
 	
-	public String update() /*throws ServletException*/ {
+	public String update()  {
 		 try { 
 		  business.update(cidade);
 		}
 		  catch (Exception e){
-			  FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Atenção:", e.getLocalizedMessage()));
+			  FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Atenção:", e.getLocalizedMessage()));
 			  return null;
 		}
 		 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "-", "Cidade actualizada com sucesso."));
-		 return "read";
+		 return "read?faces-redirect=true";
 	}
 }

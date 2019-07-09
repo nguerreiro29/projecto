@@ -7,13 +7,13 @@ import agendabusiness.ICidadeBUSINESS;
 import agendadao.ICidadeDAO;
 import entity.Cidade;
 
-public class CidadeBUSINESS implements ICidadeBUSINESS{
+public class TelefoneBUSINESS implements ICidadeBUSINESS{
 	private ICidadeDAO dao= new CidadeDAO();
 	@Override
 	public void create(Cidade cidade) throws BusinessException {
 		//validar se o nome e vazio 
 		if(cidade.getNome() == null || cidade.getNome().trim().isEmpty()) {
-			throw new BusinessException("O Nome é de preenchimento obrigatório!!");
+			throw new BusinessException("Preenchimento obrigatório!!");
 		}
 		
 		//validar se existe
@@ -37,7 +37,7 @@ public class CidadeBUSINESS implements ICidadeBUSINESS{
 	@Override
 	public void update(Cidade cidade) throws BusinessException {
 		if(cidade.getNome() == null || cidade.getNome().trim().isEmpty()) {
-			throw new BusinessException("O Nome é de preenchimento obrigatório!!");
+			throw new BusinessException("Preenchimento obrigatório!!");
 		}
 		
 		//validar se existe

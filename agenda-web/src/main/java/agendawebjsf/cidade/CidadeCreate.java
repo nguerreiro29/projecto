@@ -1,4 +1,4 @@
-package agendawebjsf;
+package agendawebjsf.cidade;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -53,7 +53,7 @@ public class CidadeCreate {
 		  business.create(cidade);
 		}
 		  catch (Exception e){
-			  FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Atenção:", e.getLocalizedMessage()));
+			  FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Atenção:", e.getLocalizedMessage()));
 			  return null;
 			  
 			 // <h:messages globalOnly="true" warnClass="" infoClass="" errorClass="" fatalClass=""/>
@@ -63,7 +63,7 @@ public class CidadeCreate {
 		}
 		 
 		 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "-", "Cidade inserida com sucesso."));
-		 return "read";
+		 return "read?faces-redirect=true";
 	}
 	
 	public String limpar() {

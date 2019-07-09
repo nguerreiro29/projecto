@@ -12,6 +12,7 @@
     <module>agenda-web</module>
     <module>agenda-dao</module>
     <module>agenda-business</module>
+    <module>agenda-client</module>
   </modules>
   
   <properties>
@@ -36,6 +37,12 @@
 	<dependency>
     	<groupId>com.everis.academia.java</groupId>
     	<artifactId>agenda-business</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
+	</dependency>
+	
+	<dependency>
+    	<groupId>com.everis.academia.java</groupId>
+    	<artifactId>agenda-client</artifactId>
     	<version>0.0.1-SNAPSHOT</version>
 	</dependency>
 	

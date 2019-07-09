@@ -1,4 +1,4 @@
-package agendawebjsf;
+package agendawebjsf.cidade;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -29,9 +29,9 @@ public class CidadeDelete {
 			
 		}
 		  catch (Exception e){
-			  FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Atenção:", "Não foi possivel apagar a cidade."));  
+			  FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Atenção:", "Não foi possivel apagar a cidade."));  
 		}
-		  return "read"; 
+		  return "read?faces-redirect=true"; 
 	}
 	
 	
