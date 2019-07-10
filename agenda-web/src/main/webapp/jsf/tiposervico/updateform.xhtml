@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:f="http://java.sun.com/jsf/core"
+       xmlns:p="http://primefaces.org/ui">
+ 
+    <h:head>
+        <title>Agenda</title>
+    </h:head>
+    <h:body>
+	<h:form>
+		<p:panel header="Editar Tipo de Serviço" footer="">
+			<h:panelGroup>
+				<p:outputLabel value="Codigo "/>
+				<p:inputText id="codigo" value="#{tipoUpdate.tipo.codigo}" onfocus="this.blur();"/><br/><br/>
+				<p:outputLabel value="Descricao "/>
+				<p:inputText id="descricao" value="#{tipoUpdate.tipo.descricao}"/>
+			</h:panelGroup>
+			<f:facet name="footer">
+				<p:commandButton value="Enviar" action="#{tipoUpdate.update}" update="@form"/><br/><br/>
+				<p:commandButton value="Ir p/ Lista de Tipos de Serviços" action="read?faces-redirect=true"/>
+			</f:facet>
+		</p:panel>
+		<p:messages showSummary="true" showDetail="true" />
+	</h:form>
+    </h:body>
+</html>

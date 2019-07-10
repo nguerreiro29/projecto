@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Agenda</title>
+    </h:head>
+    <h:body>
+     <h:form>
+    <p:panel header="Lista de Tipos de Serviço" footer="">
+    	<p:dataTable value="#{tipoRead.tipo}" var="tipo" paginator="true" rows="5" border="1" width="100%">
+    	<p:column>
+    		<f:facet name="header">
+        		<p:outputLabel value="Código"/>
+        	</f:facet>
+        	<h:outputText value="#{tipo.codigo}"/>
+        </p:column>
+        <p:column>
+    		<f:facet name="header">
+        		<h:outputLabel value="Descrição"/>
+        	</f:facet>
+        	<h:outputText value="#{tipo.descricao}"/>
+        </p:column>
+        <p:column>
+    		<f:facet name="header">
+        		<p:outputLabel value="Acções"/>
+        	</f:facet>
+        	<p:commandLink action="#{tipoUpdate.edit(tipo)}" value="Editar"/><h:outputText value=" / "/>
+        	<p:commandLink action="#{tipoDelete.delete(tipo)}" value="Apagar" update="@form"/>
+        </p:column>
+	</p:dataTable>
+	<f:facet name="footer">
+	<p:commandButton value="Criar Tipo de Serviço" action="createform"/>
+	</f:facet>
+	</p:panel>
+	<p:messages showSummary="true" showDetail="true" />
+	</h:form>
+    </h:body>
+</html>

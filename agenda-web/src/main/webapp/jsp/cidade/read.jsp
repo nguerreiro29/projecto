@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
-    <%@ page import="entity.Cidade"%>
-    <%@ page import="agendabusiness.ICidadeBUSINESS"%>
-    <%@ page import="impl.CidadeBUSINESS"%>
+    <%@ page import="agenda.entity.Cidade"%>
+    <%@ page import="agenda.business.ICidadeBUSINESS"%>
+    <%@ page import="agenda.impl.CidadeBUSINESS"%>
     <%! private ICidadeBUSINESS business = new CidadeBUSINESS(); %>
 <!DOCTYPE html>
 <html>

@@ -5,6 +5,6 @@
 >
 	<endpoint name="CidadeSOAP"
 		url-pattern="/soap/ClienteSOAP" 
-		implementation="agendaweb.soap.CidadeSOAP"/>
+		implementation="agenda.websoap.CidadeSOAP"/>
 		
 </endpoints>
