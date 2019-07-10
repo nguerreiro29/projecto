@@ -10,6 +10,7 @@ import org.springframework.web.context.annotation.RequestScope;
 
 import agenda.business.BusinessException;
 import agenda.business.ICidadeBUSINESS;
+import agenda.business.ITipoBUSINESS;
 import agenda.entity.Cidade;
 import agenda.entity.TipoServico;
 import agenda.impl.CidadeBUSINESS;
@@ -20,7 +21,7 @@ import agenda.impl.CidadeBUSINESS;
 public class TipoCreate {
 	
 	@Autowired
-	//private ICidadeBUSINESS business;
+	private ITipoBUSINESS business;
 	
 	private TipoServico tipo = new TipoServico();
 	
@@ -34,7 +35,7 @@ public class TipoCreate {
 
 	public String create() {
 		 try { 
-		  //business.create(cidade);
+		  business.create(tipo);
 		}
 		  catch (Exception e){
 			  FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Atenção:", e.getLocalizedMessage()));

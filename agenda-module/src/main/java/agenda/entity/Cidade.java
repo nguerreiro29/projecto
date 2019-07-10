@@ -1,8 +1,25 @@
 package agenda.entity;
 
-public class Cidade {
-	
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "TB_CIDADE", schema = "public")
+@SequenceGenerator(name = "SQ_CIDADE", sequenceName="SQ_CIDADE", schema = "public", initialValue = 1, allocationSize = 1)
+public class Cidade implements Serializable {
+	@Id
+	@GeneratedValue(generator = "SQ_CIDADE", strategy = GenerationType.SEQUENCE)
+	@Column(name = "COD_CIDADE", nullable=false, unique=true)
 	private Integer codigo;
+	
+	@Column(name = "NOME_CIDADE", length=30, nullable=false, unique=true)
 	private String nome;
 	
 	public Cidade() {

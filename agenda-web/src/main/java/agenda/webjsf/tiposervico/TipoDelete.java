@@ -10,7 +10,9 @@ import org.springframework.web.context.annotation.RequestScope;
 
 import agenda.business.BusinessException;
 import agenda.business.ICidadeBUSINESS;
+import agenda.business.ITipoBUSINESS;
 import agenda.entity.Cidade;
+import agenda.entity.TipoServico;
 import agenda.impl.CidadeBUSINESS;
 
 @Component
@@ -18,20 +20,11 @@ import agenda.impl.CidadeBUSINESS;
 @RequestScope
 public class TipoDelete {
 	@Autowired
-	//private ICidadeBUSINESS business;
+	private ITipoBUSINESS business;
 	
-	/*
-	 * private Cidade cidade = new Cidade();
-	 * 
-	 * public Cidade getCidade() { return cidade; }
-	 * 
-	 * public void setCidade(Cidade cidade) { this.cidade=cidade; }
-	 */
-	
-	public String delete(Cidade cidade) { //utilizando o 1 metodo no read tenho que passar parametros
-										//caso o segundo tenho que declarar Cidade os metodos get, set e nao e necessario passar parametros
+	public String delete(TipoServico tipo) { 
 		 try { 
-		  //business.delete(cidade);
+		  business.delete(tipo);
 		  FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, " ", "Tipo de Serviço apagado com sucesso."));
 			
 		}

@@ -3,16 +3,13 @@ package agenda.webjsf.cidade;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
-import javax.servlet.ServletException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.RequestScope;
 
-import agenda.business.BusinessException;
 import agenda.business.ICidadeBUSINESS;
 import agenda.entity.Cidade;
-import agenda.impl.CidadeBUSINESS;
 
 @Component
 @ManagedBean(name = "cidadeUpdate")

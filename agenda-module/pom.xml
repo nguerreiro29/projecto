@@ -8,4 +8,12 @@
   <artifactId>agenda-module</artifactId>
   <name>agenda-module</name>
   <description>Projecto para implementação das Entidades do Sistema Agenda</description>
+  
+  
+  <dependencies>
+  <dependency>
+		<groupId>javax.persistence</groupId>
+		<artifactId>javax.persistence-api</artifactId>
+	</dependency>
+	</dependencies>
 </project>

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.RequestScope;
 
 import agenda.business.ICidadeBUSINESS;
+import agenda.business.ITipoBUSINESS;
 import agenda.entity.Cidade;
 import agenda.entity.TipoServico;
 import agenda.impl.CidadeBUSINESS;
@@ -20,20 +21,20 @@ import agenda.impl.CidadeBUSINESS;
 @RequestScope
 public class TipoRead {
 	@Autowired
-	//private ICidadeBUSINESS business;
+	private ITipoBUSINESS business;
 	
-	private Collection<TipoServico> tipos = null; // se colocasse o business.read() nao criava o objecto caso desse erro
+	private Collection<TipoServico> tipos = null; 
 	
 	@PostConstruct
 	public void init() {
-		//this.cidades = business.read();
+		this.tipos = business.read();
 	}
 	
 	public Collection<TipoServico> getTipos(){
 		return tipos;
 	}
 	
-	public void setCidades(Collection<TipoServico> tipos) {
+	public void setTipos(Collection<TipoServico> tipos) {
 		this.tipos = tipos;
 	}
 }
