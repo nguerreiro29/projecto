@@ -11,9 +11,20 @@
   
   <dependencies>
     <dependency>
-    <groupId>com.everis.academia.java</groupId>
-    <artifactId>agenda-module</artifactId>
+    	<groupId>com.everis.academia.java</groupId>
+    	<artifactId>agenda-module</artifactId>
 	</dependency>
+	
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-core</artifactId>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-context</artifactId>
+	</dependency>
+
   </dependencies>
   
 </project>
