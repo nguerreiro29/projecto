@@ -25,13 +25,13 @@ public class CidadeDelete {
 										//caso o segundo tenho que declarar Cidade os metodos get, set e nao e necessario passar parametros
 		 try { 
 		  business.delete(cidade);
-		  FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "-", "Cidade apagada com sucesso."));
+		  FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, " ", "Cidade apagada com sucesso."));
 			
 		}
 		  catch (Exception e){
 			  FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Atenção:", "Não foi possivel apagar a cidade."));  
 		}
-		  return "read?faces-redirect=true"; 
+		  return "read"; 
 	}
 	
 	

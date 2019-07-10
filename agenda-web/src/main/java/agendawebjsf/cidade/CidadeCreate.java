@@ -62,8 +62,8 @@ public class CidadeCreate {
 			 // FacesContext.getCurrentInstance().addMessage("nome", new FacesMessage(FacesMessage.SEVERITY_INFO, "Atenção:", e.getLocalizedMessage()));
 		}
 		 
-		 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "-", "Cidade inserida com sucesso."));
-		 return "read?faces-redirect=true";
+		 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, " ", "Cidade inserida com sucesso."));
+		 return "read";
 	}
 	
 	public String limpar() {
