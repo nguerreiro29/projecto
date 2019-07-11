@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import agenda.dao.ITipoDAO;
 import agenda.entity.TipoServico;
 
-@Repository
+//@Repository
 public class TipoDAO implements ITipoDAO {
 
 	static List<TipoServico> tipos = new ArrayList<TipoServico>();
@@ -39,28 +39,26 @@ public class TipoDAO implements ITipoDAO {
 		tipos.set(index, tipo);  
 	}
 
+	/*
+	 * @Override public Boolean jaExisteTipo(String descricao) {
+	 * 
+	 * for (TipoServico tipo: tipos) {
+	 * if(tipo.getDescricao().trim().equalsIgnoreCase(descricao)) { return
+	 * Boolean.TRUE; } } return Boolean.FALSE; }
+	 * 
+	 * @Override public Boolean jaExisteTipoCodigo(Integer codigo, String descricao)
+	 * {
+	 * 
+	 * for (TipoServico tipo: tipos) {
+	 * if(tipo.getDescricao().trim().equalsIgnoreCase(descricao) &&
+	 * !tipo.getCodigo().equals(codigo)) { return Boolean.TRUE; } } return
+	 * Boolean.FALSE; }
+	 */
+
 	@Override
-	public Boolean jaExisteTipo(String descricao) {
-		
-		  for (TipoServico tipo: tipos) { 
-			  if(tipo.getDescricao().trim().equalsIgnoreCase(descricao)) 
-			  {
-				  return Boolean.TRUE;
-			  }
-		  }
-		return Boolean.FALSE;
-	}
-	
-	@Override
-	public Boolean jaExisteTipoCodigo(Integer codigo, String descricao) {
-		
-		  for (TipoServico tipo: tipos) { 
-			  if(tipo.getDescricao().trim().equalsIgnoreCase(descricao) && !tipo.getCodigo().equals(codigo)) 
-			  {
-				  return Boolean.TRUE;
-			  }
-		  }
-		return Boolean.FALSE;
+	public Boolean jaExisteTipo(TipoServico tipo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

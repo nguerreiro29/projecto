@@ -20,18 +20,17 @@ public class PrestadorRead {
 	@Autowired
 	private IPrestadorBUSINESS business;
 	
-	private Collection<PrestadorServico> prestadores = null; 
-	
-	@PostConstruct
-	public void init() {
-		this.prestadores = business.read();
-	}
-	
+	/*
+	 * private Collection<PrestadorServico> prestadores = null;
+	 * 
+	 * @PostConstruct public void init() { this.prestadores = business.read(); }
+	 */
 	public Collection<PrestadorServico> getPrestadores(){
-		return prestadores;
+		return business.read();
 	}
 	
-	public void setPrestadores(Collection<PrestadorServico> prestadores) {
-		this.prestadores = prestadores;
-	}
+	/*
+	 * public void setPrestadores(Collection<PrestadorServico> prestadores) {
+	 * this.prestadores = prestadores; }
+	 */
 }

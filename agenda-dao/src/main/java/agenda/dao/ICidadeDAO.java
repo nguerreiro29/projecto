@@ -15,7 +15,11 @@ public interface ICidadeDAO {
 		
 		void update (Cidade cidade);
 		
-		Boolean jaExisteCidade (String nome);
-
-		Boolean jaExisteCidadeCodigo(Integer codigo, String nome);
+		Boolean jaExisteCidade (Cidade cidade);
+		
+	/*
+	 * Boolean jaExisteCidade (String nome);
+	 * 
+	 * Boolean jaExisteCidadeCodigo(Integer codigo, String nome);
+	 */
 }

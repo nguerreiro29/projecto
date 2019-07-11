@@ -4,6 +4,8 @@ import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import agenda.business.BusinessException;
 import agenda.business.IPrestadorBUSINESS;
@@ -15,6 +17,7 @@ public class PrestadorBUSINESS implements IPrestadorBUSINESS{
 	@Autowired
 	private IPrestadorDAO dao;
 	@Override
+	@Transactional(propagation = Propagation.REQUIRED)
 	public void create(PrestadorServico prestador) throws BusinessException {
 		if(prestador.getNome() == null || prestador.getNome().trim().isEmpty()) {
 			throw new BusinessException("O Nome é de preenchimento obrigatório!!");
@@ -45,7 +48,7 @@ public class PrestadorBUSINESS implements IPrestadorBUSINESS{
 		if(prestador.getEmail() == null || prestador.getEmail().trim().isEmpty()) {
 			throw new BusinessException("O Email é de preenchimento obrigatório!!");
 		}
-		if(dao.jaExisteEmail(prestador.getEmail())) { 
+		if(dao.jaExisteEmail(prestador)) { 
 			throw new BusinessException("O email já existe!!"); 
 		}
 		/*
@@ -62,16 +65,19 @@ public class PrestadorBUSINESS implements IPrestadorBUSINESS{
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public Collection<PrestadorServico> read() {
 		return dao.read();
 	}
 
 	@Override
+	@Transactional(propagation = Propagation.REQUIRED)
 	public void delete(PrestadorServico prestador) {
 		dao.delete(prestador);
 	}
 
 	@Override
+	@Transactional(propagation = Propagation.REQUIRED)
 	public void update(PrestadorServico prestador) throws BusinessException {
 		if(prestador.getNome() == null || prestador.getNome().trim().isEmpty()) {
 			throw new BusinessException("O Nome é de preenchimento obrigatório!!");
@@ -102,7 +108,7 @@ public class PrestadorBUSINESS implements IPrestadorBUSINESS{
 		if(prestador.getEmail() == null || prestador.getEmail().trim().isEmpty()) {
 			throw new BusinessException("O Email é de preenchimento obrigatório!!");
 		}
-		if(dao.jaExisteEmailCodigo(prestador.getCodigo(),prestador.getEmail())) { 
+		if(dao.jaExisteEmail(prestador)) { 
 			 throw new BusinessException("O email já existe!!"); 
 		}
 	

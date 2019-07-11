@@ -4,16 +4,10 @@ public class Telefone {
 	
 	private Integer codigo;
 	private Integer numero;
-	//private PrestadorServico prestadorServico;
+	private PrestadorServico prestadorServico;
 	
 	public Telefone() {
 		super();
-	}
-	
-	public Telefone(Integer codigo, Integer numero){
-		super();
-		this.codigo = codigo;
-		this.numero = numero;
 	}
 
 	public Integer getCodigo() {
@@ -31,6 +25,41 @@ public class Telefone {
 	public void setNumero(Integer numero) {
 		this.numero = numero;
 	}
+
+	public PrestadorServico getPrestadorServico() {
+		return prestadorServico;
+	}
+
+	public void setPrestadorServico(PrestadorServico prestadorServico) {
+		this.prestadorServico = prestadorServico;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Telefone other = (Telefone) obj;
+		if (codigo == null) {
+			if (other.codigo != null)
+				return false;
+		} else if (!codigo.equals(other.codigo))
+			return false;
+		return true;
+	}
+	
+	
 	
 	
 

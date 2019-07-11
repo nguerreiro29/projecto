@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import agenda.dao.IPrestadorDAO;
 import agenda.entity.PrestadorServico;
 
-@Repository
+//@Repository
 public class PrestadorDAO implements IPrestadorDAO {
 
 	static List<PrestadorServico> prestadores = new ArrayList<PrestadorServico>();
@@ -38,27 +38,26 @@ public class PrestadorDAO implements IPrestadorDAO {
 		int index = prestadores.indexOf(prestador);
 		prestadores.set(index, prestador);  
 	}
+
+	@Override
+	public Boolean jaExisteEmail(PrestadorServico prestador) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
-	@Override 
-	public Boolean jaExisteEmail(String email) {
-	  
-		for (PrestadorServico prestador: prestadores) {
-			if(prestador.getEmail().trim().equalsIgnoreCase(email)) 
-			{ 
-				return Boolean.TRUE; 
-			} 
-		} 
-		return Boolean.FALSE; 
-		}
-	  
-	@Override 
-	public Boolean jaExisteEmailCodigo(Integer codigo, String email)
-	  {
-		for (PrestadorServico prestador: prestadores) {
-			if(prestador.getEmail().trim().equalsIgnoreCase(email) && !prestador.getCodigo().equals(codigo)) 
-			{ 
-				return Boolean.TRUE; 
-			} 
-		} 
-		return Boolean.FALSE; }
+	
+	/*
+	 * @Override public Boolean jaExisteEmail(String email) {
+	 * 
+	 * for (PrestadorServico prestador: prestadores) {
+	 * if(prestador.getEmail().trim().equalsIgnoreCase(email)) { return
+	 * Boolean.TRUE; } } return Boolean.FALSE; }
+	 * 
+	 * @Override public Boolean jaExisteEmailCodigo(Integer codigo, String email) {
+	 * for (PrestadorServico prestador: prestadores) {
+	 * if(prestador.getEmail().trim().equalsIgnoreCase(email) &&
+	 * !prestador.getCodigo().equals(codigo)) { return Boolean.TRUE; } } return
+	 * Boolean.FALSE; }
+	 */
 }

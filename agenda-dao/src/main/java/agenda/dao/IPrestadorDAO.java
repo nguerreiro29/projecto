@@ -14,7 +14,11 @@ public interface IPrestadorDAO {
 		
 		void update (PrestadorServico prestador);
 		
-		Boolean jaExisteEmail (String email);
-
-		Boolean jaExisteEmailCodigo(Integer codigo, String email);
+		Boolean jaExisteEmail (PrestadorServico prestador);
+		
+	/*
+	 * Boolean jaExisteEmail (String email);
+	 * 
+	 * Boolean jaExisteEmailCodigo(Integer codigo, String email);
+	 */
 }

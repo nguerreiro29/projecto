@@ -1,23 +1,64 @@
 package agenda.entity;
 
+import java.io.Serializable;
 import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import agenda.enums.TipoLogradouro;
 
-public class PrestadorServico {
-	
+@Entity
+@Table(name = "TB_PRESTADOR_SERVICO", schema = "public")
+@SequenceGenerator(name = "SQ_PRESTADOR_SERVICO", sequenceName="SQ_PRESTADOR_SERVICO", schema = "public", initialValue = 1, allocationSize = 1)
+public class PrestadorServico implements Serializable{
+	@Id
+	@GeneratedValue(generator = "SQ_PRESTADOR_SERVICO", strategy = GenerationType.SEQUENCE)
+	@Column(name = "COD_PRESTADOR_SERVICO", nullable=false, unique=true)
 	private Integer codigo;
+	
+	@Column(name = "NOME_PRESTADOR_SERVICO", length=60, nullable=false, unique=true)
 	private String nome;
+	
+	//@ManyToOne
+	@Transient
 	private Cidade cidade;
+	
+	@Column(name = "BAIRRO_PRESTADOR_SERVICO", length=60, nullable=false, unique=true)
 	private String bairro;
+	
+	@Column(name = "CEP_PRESTADOR_SERVICO", length=60, nullable=false, unique=true)
 	private String cep;
+	
+	@Transient
 	private TipoLogradouro tipoLogradouro;
+	
+	@Column(name = "LOGRADOURO_PRESTADOR_SERVICO", length=60, nullable=false, unique=true)
 	private String logradouro;
+	
+	@Column(name = "COMPLEMENTO_PRESTADOR_SERVICO", length=60, nullable=false, unique=true)
 	private String complemento;
+	
+	@Column(name = "NUMERO_PRESTADOR_SERVICO", length=60, nullable=false, unique=true)
 	private String numero;
+	
+	@Column(name = "EMAIL_PRESTADOR_SERVICO", length=60, nullable=false, unique=true)
 	private String email;
+	
+	@Transient
 	private Set<Telefone> telefones;
+	
+	@Transient
 	private Set<TipoServico> servicosCredenciados;
+	
+	@Transient
 	private Set<PrestacaoServico> prestacoesServicos;
 	
 	public PrestadorServico() {

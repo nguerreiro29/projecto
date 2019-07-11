@@ -20,18 +20,19 @@ public class CidadeRead {
 	@Autowired
 	private ICidadeBUSINESS business;
 	
-	private Collection<Cidade> cidades = null; // se colocasse o business.read() nao criava o objecto caso desse erro
+	//private Collection<Cidade> cidades = null; // se colocasse o business.read() nao criava o objecto caso desse erro
 	
-	@PostConstruct
-	public void init() {
-		this.cidades = business.read();
-	}
+	/*
+	 * @PostConstruct public void init() { this.cidades = business.read(); }
+	 */
 	
 	public Collection<Cidade> getCidades(){
-		return cidades;
+		return business.read();
+		//return cidades;
 	}
 	
-	public void setCidades(Collection<Cidade> cidades) {
-		this.cidades = cidades;
-	}
+	/*
+	 * public void setCidades(Collection<Cidade> cidades) { this.cidades = cidades;
+	 * }
+	 */
 }

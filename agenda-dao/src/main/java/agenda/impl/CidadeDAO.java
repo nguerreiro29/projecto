@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import agenda.dao.ICidadeDAO;
 import agenda.entity.Cidade;
 
-@Repository
+//@Repository
 public class CidadeDAO implements ICidadeDAO {
 
 	static List<Cidade> cidades = new ArrayList<Cidade>();
@@ -44,27 +44,25 @@ public class CidadeDAO implements ICidadeDAO {
 		cidades.set(index, cidade);  
 	}
 
-	@Override
-	public Boolean jaExisteCidade(String nome) {
-		
-		  for (Cidade cidade: cidades) { 
-			  if(cidade.getNome().trim().equalsIgnoreCase(nome)) 
-			  {
-				  return Boolean.TRUE;
-			  }
-		  }
-		return Boolean.FALSE;
-	}
+	/*@Override
 	
+	 * public Boolean jaExisteCidade(String nome) {
+	 * 
+	 * for (Cidade cidade: cidades) {
+	 * if(cidade.getNome().trim().equalsIgnoreCase(nome)) { return Boolean.TRUE; } }
+	 * return Boolean.FALSE; }
+	 * 
+	 * @Override public Boolean jaExisteCidadeCodigo(Integer codigo, String nome) {
+	 * 
+	 * for (Cidade cidade: cidades) {
+	 * if(cidade.getNome().trim().equalsIgnoreCase(nome) &&
+	 * !cidade.getCodigo().equals(codigo)) { return Boolean.TRUE; } } return
+	 * Boolean.FALSE; }
+	 */
+
 	@Override
-	public Boolean jaExisteCidadeCodigo(Integer codigo, String nome) {
-		
-		  for (Cidade cidade: cidades) { 
-			  if(cidade.getNome().trim().equalsIgnoreCase(nome) && !cidade.getCodigo().equals(codigo)) 
-			  {
-				  return Boolean.TRUE;
-			  }
-		  }
-		return Boolean.FALSE;
+	public Boolean jaExisteCidade(Cidade cidade) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

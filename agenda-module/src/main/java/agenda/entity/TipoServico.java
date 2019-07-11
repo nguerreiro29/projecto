@@ -1,8 +1,25 @@
 package agenda.entity;
 
-public class TipoServico {
-	
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "TB_TIPOSERVICO", schema = "public")
+@SequenceGenerator(name = "SQ_TIPOSERVICO", sequenceName="SQ_TIPOSERVICO", schema = "public", initialValue = 1, allocationSize = 1)
+public class TipoServico implements Serializable{
+	@Id
+	@GeneratedValue(generator = "SQ_TIPOSERVICO", strategy = GenerationType.SEQUENCE)
+	@Column(name = "COD_TIPOSERVICO", nullable=false, unique=true)
 	private Integer codigo;
+	
+	@Column(name = "DESCRICAO_TIPOSERVICO", length=30, nullable=false, unique=true)
 	private String descricao;
 	
 	public TipoServico() {

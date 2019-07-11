@@ -39,10 +39,9 @@ public class PrestadorCreate {
 		this.prestador = prestador;
 	}
 	
-	public void init() {
-		return business.read();
-	}
-	
+	/*
+	 * public void init() { return business.read(); }
+	 */
 	 public TipoLogradouro[] getTipoLogradouro()
 	 { 
 		 return TipoLogradouro.values();

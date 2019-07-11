@@ -14,7 +14,5 @@ public interface ITipoDAO {
 		
 		void update (TipoServico tipo);
 		
-		Boolean jaExisteTipo (String descricao);
-
-		Boolean jaExisteTipoCodigo(Integer codigo, String descricao);
+		Boolean jaExisteTipo (TipoServico tipo);
 }

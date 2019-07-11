@@ -20,18 +20,16 @@ public class TipoRead {
 	@Autowired
 	private ITipoBUSINESS business;
 	
-	private Collection<TipoServico> tipos = null; 
-	
-	@PostConstruct
-	public void init() {
-		this.tipos = business.read();
-	}
-	
+	/*
+	 * private Collection<TipoServico> tipos = null;
+	 * 
+	 * @PostConstruct public void init() { this.tipos = business.read(); }
+	 */
 	public Collection<TipoServico> getTipos(){
-		return tipos;
+		return business.read();
 	}
 	
-	public void setTipos(Collection<TipoServico> tipos) {
-		this.tipos = tipos;
-	}
+	/*
+	 * public void setTipos(Collection<TipoServico> tipos) { this.tipos = tipos; }
+	 */
 }
