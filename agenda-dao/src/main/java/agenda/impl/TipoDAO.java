@@ -1,15 +1,12 @@
 package agenda.impl;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import agenda.dao.ICidadeDAO;
 import agenda.dao.ITipoDAO;
-import agenda.entity.Cidade;
 import agenda.entity.TipoServico;
 
 @Repository

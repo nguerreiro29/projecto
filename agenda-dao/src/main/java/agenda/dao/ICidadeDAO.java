@@ -1,8 +1,6 @@
 package agenda.dao;
 
 import java.util.Collection;
-import java.util.List;
-
 import agenda.entity.Cidade;
 
 public interface ICidadeDAO {

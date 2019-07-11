@@ -1,0 +1,50 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+ 
+    <h:head>
+        <title>Agenda</title>
+    </h:head>
+    <h:body>
+	<h:form>
+		<p:panel header="Criar Prestador de Servico" footer="">
+			<h:panelGroup>
+				<p:outputLabel value="Nome "/>
+				<p:inputText id="nome" value="#{prestadorCreate.prestador.nome}"/><br/><br/>
+				
+				
+				
+				<p:outputLabel value="Bairro "/>
+				<p:inputText id="bairro" value="#{prestadorCreate.prestador.bairro}"/><br/><br/>
+				<p:outputLabel value="Cep "/>
+				<p:inputText id="cep" value="#{prestadorCreate.prestador.cep}"/><br/><br/>
+				
+				
+				
+				
+				<p:outputLabel value="Logradouro "/>
+				<p:inputText id="logradouro" value="#{prestadorCreate.prestador.logradouro}"/><br/><br/>
+				<p:outputLabel value="Complemento "/>
+				<p:inputText id="complemento" value="#{prestadorCreate.prestador.complemento}"/><br/><br/>
+				<p:outputLabel value="Numero "/>
+				<p:inputText id="numero" value="#{prestadorCreate.prestador.numero}"/><br/><br/>
+				<p:outputLabel value="Email "/>
+				<p:inputText id="email" value="#{prestadorCreate.prestador.email}"/><br/><br/>
+				<!-- <p:outputLabel value="Telefone "/>
+				<p:inputText id="telefone" value="#{prestadorCreate.prestador.telefones}"/><br/><br/> -->
+				
+	
+				
+			</h:panelGroup>
+		<f:facet name="footer">
+				<p:commandButton value="Enviar" action="#{prestadorCreate.create}" update="@form"/>
+				<p:commandButton value="Limpar" action="#{prestadorCreate.limpar}" update="@form"/><br/><br/>
+				<p:commandButton value="Ir p/ Lista de Prestadores de Serviços" action="read"/>
+		</f:facet>
+		</p:panel>
+		
+		<p:messages showSummary="true" showDetail="true" />
+	</h:form>
+    </h:body>
+</html>

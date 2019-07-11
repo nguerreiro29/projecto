@@ -4,11 +4,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
-import agenda.business.BusinessException;
-import agenda.business.ICidadeBUSINESS;
-import agenda.entity.Cidade;
 import agenda.entity.Telefone;
-import agenda.impl.CidadeBUSINESS;
 
 @ManagedBean(name = "telefoneDelete")
 public class TelefoneDelete {

@@ -12,7 +12,6 @@ import org.springframework.web.context.annotation.RequestScope;
 
 import agenda.business.ICidadeBUSINESS;
 import agenda.entity.Cidade;
-import agenda.impl.CidadeBUSINESS;
 
 @Component	
 @ManagedBean(name = "cidadeRead")

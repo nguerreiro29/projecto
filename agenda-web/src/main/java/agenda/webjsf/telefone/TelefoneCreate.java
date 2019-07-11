@@ -5,7 +5,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 
 import agenda.business.ICidadeBUSINESS;
-import agenda.business.ITelefoneBUSINESS;
 import agenda.entity.Cidade;
 import agenda.entity.Telefone;
 import agenda.impl.CidadeBUSINESS;

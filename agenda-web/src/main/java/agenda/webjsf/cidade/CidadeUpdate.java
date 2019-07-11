@@ -13,7 +13,7 @@ import agenda.entity.Cidade;
 
 @Component
 @ManagedBean(name = "cidadeUpdate")
-@RequestScope
+//@RequestScope
 public class CidadeUpdate {
 	@Autowired
 	private ICidadeBUSINESS business;

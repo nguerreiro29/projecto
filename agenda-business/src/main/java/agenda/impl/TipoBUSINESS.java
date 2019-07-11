@@ -6,11 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import agenda.business.BusinessException;
-import agenda.business.ICidadeBUSINESS;
 import agenda.business.ITipoBUSINESS;
-import agenda.dao.ICidadeDAO;
 import agenda.dao.ITipoDAO;
-import agenda.entity.Cidade;
 import agenda.entity.TipoServico;
 
 @Service

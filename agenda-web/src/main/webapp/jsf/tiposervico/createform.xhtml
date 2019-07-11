@@ -11,7 +11,7 @@
 		<p:panel header="Criar Tipo de Serviço" footer="">
 			<h:panelGroup>
 				<p:outputLabel value="Descricao "/>
-				<p:inputText id="nome" value="#{tipoCreate.tipo.descricao}"/>
+				<p:inputText id="descricao" value="#{tipoCreate.tipo.descricao}"/>
 			</h:panelGroup>
 		<f:facet name="footer">
 				<p:commandButton value="Enviar" action="#{tipoCreate.create}" update="@form"/>

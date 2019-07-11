@@ -3,22 +3,20 @@ package agenda.webjsf.prestador;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
-import javax.servlet.ServletException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.RequestScope;
 
-import agenda.business.BusinessException;
-import agenda.business.ICidadeBUSINESS;
-import agenda.entity.Cidade;
+import agenda.business.IPrestadorBUSINESS;
 import agenda.entity.PrestadorServico;
-import agenda.impl.CidadeBUSINESS;
 
-//@Component
+@Component
 @ManagedBean(name = "prestadorUpdate")
+@RequestScope
 public class PrestadorUpdate {
-	//@Autowired
-	private ICidadeBUSINESS business  = new CidadeBUSINESS();
+	@Autowired
+	private IPrestadorBUSINESS business;
 	
 	private PrestadorServico prestador = new PrestadorServico();
 
@@ -38,7 +36,7 @@ public class PrestadorUpdate {
 	
 	public String update()  {
 		 try { 
-		  //business.update(cidade);
+		  business.update(prestador);
 		}
 		  catch (Exception e){
 			  FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Atenção:", e.getLocalizedMessage()));

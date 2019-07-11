@@ -1,0 +1,99 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Agenda</title>
+    </h:head>
+    <h:body>
+     <h:form>
+    <p:panel header="Lista de Tipos de Serviço" footer="">
+    	<p:dataTable value="#{prestadorRead.prestadores}" var="prestador" paginator="true" rows="5" border="1" width="100%">
+    	<p:column>
+    		<f:facet name="header">
+        		<p:outputLabel value="Código"/>
+        	</f:facet>
+        	<h:outputText value="#{prestador.codigo}"/>
+        </p:column>
+        <p:column>
+    		<f:facet name="header">
+        		<h:outputLabel value="Nome"/>
+        	</f:facet>
+        	<h:outputText value="#{prestador.nome}"/>
+        </p:column>
+         <p:column>
+    		<f:facet name="header">
+        		<h:outputLabel value="Cidade"/>
+        	</f:facet>
+        	<h:outputText value="#{prestador.cidade}"/>
+        </p:column>
+         <p:column>
+    		<f:facet name="header">
+        		<h:outputLabel value="Bairro"/>
+        	</f:facet>
+        	<h:outputText value="#{prestador.bairro}"/>
+        </p:column>
+         <p:column>
+    		<f:facet name="header">
+        		<h:outputLabel value="Cep"/>
+        	</f:facet>
+        	<h:outputText value="#{prestador.cep}"/>
+        </p:column>
+         <p:column>
+    		<f:facet name="header">
+        		<h:outputLabel value="Tipo_Logradouro"/>
+        	</f:facet>
+        	<h:outputText value="#{prestador.tipoLogradouro}"/>
+        </p:column>
+         <p:column>
+    		<f:facet name="header">
+        		<h:outputLabel value="Logradouro"/>
+        	</f:facet>
+        	<h:outputText value="#{prestador.logradouro}"/>
+        </p:column>
+         <p:column>
+    		<f:facet name="header">
+        		<h:outputLabel value="Complemento"/>
+        	</f:facet>
+        	<h:outputText value="#{prestador.complemento}"/>
+        </p:column>
+         <p:column>
+    		<f:facet name="header">
+        		<h:outputLabel value="Numero"/>
+        	</f:facet>
+        	<h:outputText value="#{prestador.numero}"/>
+        </p:column>
+         <p:column>
+    		<f:facet name="header">
+        		<h:outputLabel value="Email"/>
+        	</f:facet>
+        	<h:outputText value="#{prestador.email}"/>
+        </p:column>
+        <p:column>
+    		<f:facet name="header">
+        		<h:outputLabel value="Telefones"/>
+        	</f:facet>
+        	<h:outputText value="#{prestador.telefones}"/>
+        </p:column>
+        <p:column>
+    		<f:facet name="header">
+        		<h:outputLabel value="Servicos Credenciados"/>
+        	</f:facet>
+        	<h:outputText value="#{prestador.servicosCredenciados}"/>
+        </p:column>
+        <p:column>
+    		<f:facet name="header">
+        		<p:outputLabel value="Acções"/>
+        	</f:facet>
+        	<p:commandLink action="#{prestadorUpdate.edit(prestador)}" value="Editar"/><h:outputText value=" / "/>
+        	<p:commandLink action="#{prestadorDelete.delete(prestador)}" value="Apagar" update="@form"/>
+        </p:column>
+	</p:dataTable>
+	<f:facet name="footer">
+	<p:commandButton value="Criar Prestador de Serviço" action="createform?faces-redirect-true"/>
+	</f:facet>
+	</p:panel>
+	<p:messages showSummary="true" showDetail="true" />
+	</h:form>
+    </h:body>
+</html>

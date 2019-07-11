@@ -1,9 +1,7 @@
 package agenda.dao;
 
 import java.util.Collection;
-import java.util.List;
 
-import agenda.entity.Cidade;
 import agenda.entity.TipoServico;
 
 public interface ITipoDAO {

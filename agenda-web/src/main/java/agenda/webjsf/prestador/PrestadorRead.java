@@ -8,23 +8,23 @@ import javax.faces.bean.ManagedBean;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.RequestScope;
 
-import agenda.business.ICidadeBUSINESS;
-import agenda.entity.Cidade;
+import agenda.business.IPrestadorBUSINESS;
 import agenda.entity.PrestadorServico;
-import agenda.impl.CidadeBUSINESS;
 
-//@Component	
+@Component	
 @ManagedBean(name = "prestadorRead")
+@RequestScope
 public class PrestadorRead {
-	//@Autowired
-	private ICidadeBUSINESS business  = new CidadeBUSINESS();
+	@Autowired
+	private IPrestadorBUSINESS business;
 	
-	private Collection<PrestadorServico> prestadores = null; // se colocasse o business.read() nao criava o objecto caso desse erro
+	private Collection<PrestadorServico> prestadores = null; 
 	
 	@PostConstruct
 	public void init() {
-		//this.prestadores = business.read();
+		this.prestadores = business.read();
 	}
 	
 	public Collection<PrestadorServico> getPrestadores(){

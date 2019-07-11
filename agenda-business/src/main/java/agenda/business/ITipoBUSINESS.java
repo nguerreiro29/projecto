@@ -2,7 +2,6 @@ package agenda.business;
 
 import java.util.Collection;
 
-import agenda.entity.Cidade;
 import agenda.entity.TipoServico;
 
 public interface ITipoBUSINESS {
