@@ -51,10 +51,14 @@ public class CidadeHibernateDAO implements ICidadeDAO {
 	public Boolean jaExisteCidade(Cidade cidade) {
 		Session session = sessionFactory.getCurrentSession();
 		Criteria criteria = session.createCriteria(Cidade.class);
-		criteria.add(Restrictions.and(Restrictions.eq("nome", cidade.getNome()).ignoreCase()));
-		 if(cidade.getCodigo()!=null) {
-			 criteria.add(Restrictions.ne("codigo", cidade.getCodigo()));
-		 }
+		criteria.add(Restrictions.and(Restrictions.eq("nome", cidade.getNome()).ignoreCase(),
+				Restrictions.neOrIsNotNull("codigo", cidade.getCodigo())));
+		
+		/*
+		 * if(cidade.getCodigo()!=null) { criteria.add(Restrictions.ne("codigo",
+		 * cidade.getCodigo())); }
+		 */
+		 
 		criteria.setProjection(Projections.count("codigo"));
 		return (Long) criteria.uniqueResult()>0;
 	}

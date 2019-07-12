@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 import agenda.dao.ICidadeDAO;
 import agenda.dao.ITipoDAO;
 import agenda.entity.Cidade;
+import agenda.entity.PrestadorServico;
 import agenda.entity.TipoServico;
 
 @Repository
@@ -53,12 +54,12 @@ public class TipoHibernateDAO implements ITipoDAO {
 	public Boolean jaExisteTipo(TipoServico tipo) {
 		Session session = sessionFactory.getCurrentSession();
 		Criteria criteria = session.createCriteria(TipoServico.class);
-		criteria.add(Restrictions.and(Restrictions.eq("descricao", tipo.getDescricao()).ignoreCase()));
+		criteria.add(Restrictions.and(Restrictions.eq("descricao", tipo.getDescricao()).ignoreCase(),
+				Restrictions.neOrIsNotNull("codigo", tipo.getCodigo())));
 		 if(tipo.getCodigo()!=null) {
 			 criteria.add(Restrictions.ne("codigo", tipo.getCodigo()));
 		 }
 		criteria.setProjection(Projections.count("codigo"));
 		return (Long) criteria.uniqueResult()>0;
 	}
-
 }

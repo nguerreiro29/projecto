@@ -3,12 +3,20 @@ package agenda.entity;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
@@ -24,42 +32,47 @@ public class PrestadorServico implements Serializable{
 	@Column(name = "COD_PRESTADOR_SERVICO", nullable=false, unique=true)
 	private Integer codigo;
 	
-	@Column(name = "NOME_PRESTADOR_SERVICO", length=60, nullable=false, unique=true)
+	@Column(name = "NOME_PRESTADOR_SERVICO", length=60, nullable=false)
 	private String nome;
 	
-	//@ManyToOne
-	@Transient
+	@ManyToOne(fetch = FetchType.EAGER, targetEntity = Cidade.class)
+			@JoinColumn(name = "COD_CIDADE", nullable = false)
 	private Cidade cidade;
 	
-	@Column(name = "BAIRRO_PRESTADOR_SERVICO", length=60, nullable=false, unique=true)
+	@Column(name = "BAIRRO_PRESTADOR_SERVICO", length=60, nullable=false)
 	private String bairro;
 	
-	@Column(name = "CEP_PRESTADOR_SERVICO", length=60, nullable=false, unique=true)
+	@Column(name = "CEP_PRESTADOR_SERVICO", length=60, nullable=false)
 	private String cep;
 	
-	@Transient
+	@Enumerated(EnumType.STRING)
+	@Column(name = "TIPOLOGRADOURO_PRESTADOR_SERVICO", length=60, nullable=false)
 	private TipoLogradouro tipoLogradouro;
 	
-	@Column(name = "LOGRADOURO_PRESTADOR_SERVICO", length=60, nullable=false, unique=true)
+	@Column(name = "LOGRADOURO_PRESTADOR_SERVICO", length=60, nullable=false)
 	private String logradouro;
 	
-	@Column(name = "COMPLEMENTO_PRESTADOR_SERVICO", length=60, nullable=false, unique=true)
+	@Column(name = "COMPLEMENTO_PRESTADOR_SERVICO", length=60, nullable=false)
 	private String complemento;
 	
-	@Column(name = "NUMERO_PRESTADOR_SERVICO", length=60, nullable=false, unique=true)
+	@Column(name = "NUMERO_PRESTADOR_SERVICO", length=60, nullable=false)
 	private String numero;
 	
-	@Column(name = "EMAIL_PRESTADOR_SERVICO", length=60, nullable=false, unique=true)
+	@Column(name = "EMAIL_PRESTADOR_SERVICO", length=60, nullable=false)
 	private String email;
 	
-	@Transient
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "prestadorServico", orphanRemoval = true, targetEntity = Telefone.class)
 	private Set<Telefone> telefones;
 	
-	@Transient
+	@ManyToMany(fetch = FetchType.EAGER, targetEntity = TipoServico.class)
+		@JoinTable(name = "TB_SERVICOS_CREDENCIADOS", joinColumns = {@JoinColumn(name = "COD_PRESTADOR_SERVICO")}, 
+							inverseJoinColumns = {@JoinColumn(name="COD_TIPOSERVICO")})
 	private Set<TipoServico> servicosCredenciados;
 	
 	@Transient
 	private Set<PrestacaoServico> prestacoesServicos;
+	
+	
 	
 	public PrestadorServico() {
 		super();

@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import agenda.dao.IPrestadorDAO;
+import agenda.entity.Cidade;
 import agenda.entity.PrestadorServico;
 import agenda.entity.TipoServico;
 
@@ -33,6 +34,7 @@ public class PrestadorHibernateDAO implements IPrestadorDAO {
 	public Collection<PrestadorServico> read() {
 		Session session = sessionFactory.getCurrentSession();
 		Criteria criteria = session.createCriteria(PrestadorServico.class);
+		criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
 		return criteria.list();
 	}
 
@@ -54,10 +56,8 @@ public class PrestadorHibernateDAO implements IPrestadorDAO {
 	public Boolean jaExisteEmail(PrestadorServico prestador) {
 		Session session = sessionFactory.getCurrentSession();
 		Criteria criteria = session.createCriteria(PrestadorServico.class);
-		criteria.add(Restrictions.and(Restrictions.eq("email", prestador.getEmail()).ignoreCase()));
-		 if(prestador.getCodigo()!=null) {
-			 criteria.add(Restrictions.ne("codigo", prestador.getCodigo()));
-		 }
+		criteria.add(Restrictions.and(Restrictions.eq("email", prestador.getEmail()).ignoreCase(),
+				Restrictions.neOrIsNotNull("codigo", prestador.getCodigo())));
 		criteria.setProjection(Projections.count("codigo"));
 		return (Long) criteria.uniqueResult()>0;
 	}

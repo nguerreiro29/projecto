@@ -19,7 +19,7 @@ public class TipoServico implements Serializable{
 	@Column(name = "COD_TIPOSERVICO", nullable=false, unique=true)
 	private Integer codigo;
 	
-	@Column(name = "DESCRICAO_TIPOSERVICO", length=30, nullable=false, unique=true)
+	@Column(name = "DESCRICAO_TIPOSERVICO", length=60, nullable=false)
 	private String descricao;
 	
 	public TipoServico() {
@@ -71,6 +71,11 @@ public class TipoServico implements Serializable{
 		} else if (!codigo.equals(other.codigo))
 			return false;
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return descricao;
 	}
 	
 	

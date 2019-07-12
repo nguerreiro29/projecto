@@ -13,41 +13,42 @@
 				<p:outputLabel value="Nome "/>
 				<p:inputText id="nome" value="#{prestadorCreate.prestador.nome}"/><br/><br/>
 				
-				<!-- <p:outputLabel for="drop" value="Cidade " />
-        		<p:selectOneMenu id="drop" value="" style="width:200px">
-            	<f:selectItem itemLabel="" itemValue="" />
-            	<f:selectItem itemLabel="" itemValue="" />
-            	<f:selectItem itemLabel="" itemValue="" />
-            	<f:selectItem itemLabel="" itemValue="" />
-        		</p:selectOneMenu><br/><br/> -->
-				
+				<p:outputLabel for="drop" value="Cidade " />
+        		<p:selectOneMenu id="drop" value="#{prestadorCreate.prestador.cidade}" converter="cidadeConverter" style="width:200px">
+	            	<f:selectItem itemValue="" itemLabel="Selecione" />
+	            	<f:selectItems value="#{prestadorCreate.cidades}" var= "cidade" itemLabel="#{cidade.nome}" />
+        		</p:selectOneMenu><br/><br/> 
 				
 				<p:outputLabel value="Bairro "/>
 				<p:inputText id="bairro" value="#{prestadorCreate.prestador.bairro}"/><br/><br/>
 				<p:outputLabel value="Cep "/>
 				<p:inputText id="cep" value="#{prestadorCreate.prestador.cep}"/><br/><br/>
 				
-				
-				
-				
-				<!-- <p:outputLabel for="drop2" value="Tipo de Logradouro " />
-				<p:selectOneMenu id="drop2" value="" style="width:200px">
-				<f:selectItem itemLabel="Selecione" />
-				<f:selectItems value="" var="" itemValue=""/>
-				</p:selectOneMenu><br/><br/> -->
+				<p:outputLabel for="drop2" value="Tipo de Logradouro " />
+				<p:selectOneMenu id="drop2" value="#{prestadorCreate.prestador.tipoLogradouro}" style="width:200px">
+					<f:selectItem itemLabel="Selecione" itemValue=""/>
+					<f:selectItems value="#{prestadorCreate.tiposLogradouros}"/>
+				</p:selectOneMenu><br/><br/>
 				
 				<p:outputLabel value="Logradouro "/>
 				<p:inputText id="logradouro" value="#{prestadorCreate.prestador.logradouro}"/><br/><br/>
+				
 				<p:outputLabel value="Complemento "/>
 				<p:inputText id="complemento" value="#{prestadorCreate.prestador.complemento}"/><br/><br/>
+				
 				<p:outputLabel value="Numero "/>
 				<p:inputText id="numero" value="#{prestadorCreate.prestador.numero}"/><br/><br/>
+				
 				<p:outputLabel value="Email "/>
 				<p:inputText id="email" value="#{prestadorCreate.prestador.email}"/><br/><br/>
-				<!-- <p:outputLabel value="Telefone "/>
-				<p:inputText id="telefone" value="#{prestadorCreate.prestador.telefones}"/><br/><br/> -->
 				
-	
+				<p:outputLabel value="Telefone "/>
+				<p:inputText id="telefone" value="#{prestadorCreate.telefone.numero}" /><br/><br/>
+
+				<p:outputLabel for="checkbox" value="Serviços Credenciados:" />
+				<p:selectManyCheckbox id="checkbox" value="#{prestadorCreate.prestador.servicosCredenciados}" converter="tipoServicoConverter" layout="responsive" columns="4">
+        		<f:selectItems value="#{prestadorCreate.tipos}" var="tipo" itemLabel="#{tipo.descricao}" />
+    			</p:selectManyCheckbox><br/><br/> 
 				
 			</h:panelGroup>
 		<f:facet name="footer">

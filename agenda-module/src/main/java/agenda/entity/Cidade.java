@@ -19,7 +19,7 @@ public class Cidade implements Serializable {
 	@Column(name = "COD_CIDADE", nullable=false, unique=true)
 	private Integer codigo;
 	
-	@Column(name = "NOME_CIDADE", length=30, nullable=false, unique=true)
+	@Column(name = "NOME_CIDADE", length=60, nullable=false)
 	private String nome;
 	
 	public Cidade() {
@@ -89,6 +89,13 @@ public class Cidade implements Serializable {
 		 
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return nome;
+	}
+	
+	
 	
 	
 	

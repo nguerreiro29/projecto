@@ -12,15 +12,27 @@
 			<h:panelGroup>
 				<p:outputLabel value="Codigo "/>
 				<p:inputText id="codigo" value="#{prestadorUpdate.prestador.codigo}" onfocus="this.blur();"/><br/><br/>
+				
 				<p:outputLabel value="Nome "/>
 				<p:inputText id="nome" value="#{prestadorUpdate.prestador.nome}"/><br/><br/>
 				
-				
+				<p:outputLabel for="drop" value="Cidade " />
+        		<p:selectOneMenu id="drop" value="#{prestadorUpdate.prestador.cidade}" converter="cidadeConverter" style="width:200px">
+	            	<f:selectItem itemValue="" itemLabel="Selecione" />
+	            	<f:selectItems value="#{prestadorCreate.cidades}" var= "cidade" itemLabel="#{cidade.nome}" />
+        		</p:selectOneMenu><br/><br/> 
+        		
 				<p:outputLabel value="Bairro "/>
 				<p:inputText id="bairro" value="#{prestadorUpdate.prestador.bairro}"/><br/><br/>
+				
 				<p:outputLabel value="Cep "/>
 				<p:inputText id="cep" value="#{prestadorUpdate.prestador.cep}"/><br/><br/>
 				
+				<p:outputLabel for="drop2" value="Tipo de Logradouro " />
+				<p:selectOneMenu id="drop2" value="#{prestadorUpdate.prestador.tipoLogradouro}" style="width:200px">
+					<f:selectItem itemLabel="Selecione" itemValue=""/>
+					<f:selectItems value="#{prestadorUpdate.tiposLogradouros}"/>
+				</p:selectOneMenu><br/><br/>
 				
 				<p:outputLabel value="Logradouro "/>
 				<p:inputText id="logradouro" value="#{prestadorUpdate.prestador.logradouro}"/><br/><br/>
@@ -30,6 +42,11 @@
 				<p:inputText id="numero" value="#{prestadorUpdate.prestador.numero}"/><br/><br/>
 				<p:outputLabel value="Email "/>
 				<p:inputText id="email" value="#{prestadorUpdate.prestador.email}"/><br/><br/>
+				
+				<p:outputLabel for="checkbox" value="Serviços Credenciados:" />
+				<p:selectManyCheckbox id="checkbox" value="#{prestadorUpdate.prestador.servicosCredenciados}" converter="tipoServicoConverter" layout="responsive" columns="4">
+        			<f:selectItems value="#{prestadorUpdate.tipos}" var="tipo" itemLabel="#{tipo.descricao}" />
+    			</p:selectManyCheckbox><br/><br/> 
 			</h:panelGroup>
 			<f:facet name="footer">
 				<p:commandButton value="Enviar" action="#{prestadorUpdate.update}" update="@form"/><br/><br/>
