@@ -39,8 +39,6 @@ public class PrestadorCreate {
 	
 	private Telefone telefone = new Telefone();
 	
-	private Set<Telefone> telefones = new HashSet<Telefone>();
-	
 	public Collection<Cidade> getcidades(){
 		return businesscidade.read();
 	}
@@ -70,12 +68,22 @@ public class PrestadorCreate {
 		 return TipoLogradouro.values();
 	 }
 	 
+	 public String createTelefone() {
+		 if(prestador.getTelefones() == null)
+		  {
+			  //new Hash
+			  //prestador.setTelefones(new HashSet<E>(telefone));
+			  //telefones.add(telefone); 
+			  
+		  }
+		return null;
+	 }
+
+	  
 	 
 	 public String create() {
 		 try { 
-		  telefones.add(telefone); 
-		  prestador.setTelefones(telefones);
-		  business.create(prestador);
+			 business.create(prestador);
 		}
 		  catch (Exception e){
 			  FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Atenção:", e.getLocalizedMessage()));

@@ -42,8 +42,7 @@
 				<p:outputLabel value="Email "/>
 				<p:inputText id="email" value="#{prestadorCreate.prestador.email}"/><br/><br/>
 				
-				<p:outputLabel value="Telefone "/>
-				<p:inputText id="telefone" value="#{prestadorCreate.telefone.numero}" /><br/><br/>
+				
 
 				<p:outputLabel for="checkbox" value="Serviços Credenciados:" />
 				<p:selectManyCheckbox id="checkbox" value="#{prestadorCreate.prestador.servicosCredenciados}" converter="tipoServicoConverter" layout="responsive" columns="4">
